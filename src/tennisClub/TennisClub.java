@@ -15,9 +15,9 @@ import java.util.PriorityQueue;
 
 public class TennisClub {
 
-    // Sweep Line approach
+    // sweepline approach
     // TC: O(maxTime)
-    // Works when time range is small and discrete (e.g., hours or minutes)
+    // works when time range is small and discrete
     public int getMinimumTennisCourts1(List<int[]> intvl) {
         if (intvl.isEmpty()) return 0;
 
@@ -30,7 +30,7 @@ public class TennisClub {
         int[] timeline = new int[maxTime + 2];
         for (int[] i : intvl) {
             timeline[i[0]] += 1;
-            timeline[i[1]] -= 1;  // match ends, free a court
+            timeline[i[1]] -= 1;
         }
 
         int ongoing = 0, maxCourts = 0;
@@ -42,7 +42,7 @@ public class TennisClub {
         return maxCourts;
     }
 
-    // Sort start[] and end[] separately
+    // sort start[] and end[] separately
     // TC: O(n log n)
     public int getMinimumTennisCourts2(List<int[]> intvl) {
         if (intvl.isEmpty()) return 0;
